@@ -23,6 +23,8 @@ public class PersonaContacto {
 	@NotNull
 	private Long dni;
 	
+	//Fran estuvo aqui
+	
 	@NotNull
 	private Long celular;
 	
