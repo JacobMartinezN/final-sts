@@ -31,10 +31,11 @@ public class Empleado implements Serializable {
 	@NotNull
 	private Long celular;
 	
-	@ManyToMany
-	@JoinTable(name="pago_id")
+	@OneToMany(mappedBy="empleado",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Pago> pagos;
 	
+	@OneToMany(mappedBy="empleado",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Factura> facturas;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	private Cargo cargo;
@@ -79,6 +80,30 @@ public class Empleado implements Serializable {
 
 	public void setCelular(Long celular) {
 		this.celular = celular;
+	}
+
+	public List<Pago> getPagos() {
+		return pagos;
+	}
+
+	public void setPagos(List<Pago> pagos) {
+		this.pagos = pagos;
+	}
+
+	public List<Factura> getFacturas() {
+		return facturas;
+	}
+
+	public void setFacturas(List<Factura> facturas) {
+		this.facturas = facturas;
+	}
+
+	public Cargo getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
 	}
 
 

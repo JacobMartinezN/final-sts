@@ -30,9 +30,9 @@ public class Pago implements Serializable  {
 	@OneToOne(fetch = FetchType.LAZY)
 	private Factura factura;
 	
-	 @ManyToMany
-	 @JoinTable(name="empleado_id")
-	 private List<Empleado> empleados;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="empleado_id", insertable=false, updatable=false)
+	private Empleado empleado;
 
 	public Long getIdPago() {
 		return idPago;
@@ -72,6 +72,14 @@ public class Pago implements Serializable  {
 
 	public void setFactura(Factura factura) {
 		this.factura = factura;
+	}
+
+	public Empleado getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
 	}
 
 

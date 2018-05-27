@@ -57,7 +57,13 @@ public class Factura implements Serializable {
 		
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="factura_id", insertable=false, updatable=false)
+	private Empleado empleado;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="factura_id", insertable=false, updatable=false)
 	private Proveedor proveedor;
+	
+	
 
 	public Long getId() {
 		return id;
@@ -147,13 +153,15 @@ public class Factura implements Serializable {
 		this.porcetajeDetraccion = porcetajeDetraccion;
 	}
 
-	public Proveedor getProveedor() {
-		return proveedor;
+	public Empleado getEmpleado() {
+		return empleado;
 	}
 
-	public void setProveedor(Proveedor proveedor) {
-		this.proveedor = proveedor;
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
 	}
+
+	
 	
 	
 	
