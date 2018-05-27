@@ -2,6 +2,7 @@ package com.bpz.app.models.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -30,13 +31,16 @@ public class Empleado implements Serializable {
 	@NotNull
 	private Long celular;
 	
-	@NotNull
-	private String cargo;
+	@ManyToMany
+	@JoinTable(name="pago_id")
+	private List<Pago> pagos;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Pago_id")
-	private Pago pago;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	private Cargo cargo;
 
+	
+	
 	public Long getIdEmpleado() {
 		return idEmpleado;
 	}
@@ -77,21 +81,8 @@ public class Empleado implements Serializable {
 		this.celular = celular;
 	}
 
-	public String getCargo() {
-		return cargo;
-	}
 
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
-	}
 
-	public Pago getPago() {
-		return pago;
-	}
-
-	public void setPago(Pago pago) {
-		this.pago = pago;
-	}
 	
 	
 	

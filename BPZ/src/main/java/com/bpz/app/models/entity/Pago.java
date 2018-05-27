@@ -2,6 +2,7 @@ package com.bpz.app.models.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -29,9 +30,9 @@ public class Pago implements Serializable  {
 	@OneToOne(fetch = FetchType.LAZY)
 	private Factura factura;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "empleado_id")
-	private Empleado empleado;
+	 @ManyToMany
+	 @JoinTable(name="empleado_id")
+	 private List<Empleado> empleados;
 
 	public Long getIdPago() {
 		return idPago;
@@ -73,14 +74,7 @@ public class Pago implements Serializable  {
 		this.factura = factura;
 	}
 
-	public Empleado getEmpleado() {
-		return empleado;
-	}
 
-	public void setEmpleado(Empleado empleado) {
-		this.empleado = empleado;
-	}
-	
 	
 	
 

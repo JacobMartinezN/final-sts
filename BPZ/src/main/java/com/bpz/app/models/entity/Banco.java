@@ -18,6 +18,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 
+
 @Entity
 @Table(name = "Banco")
 public class Banco implements Serializable {
@@ -35,11 +36,10 @@ private static final long serialVersionUID = 1L;
 	private  String ruc;
 	
 
-	@OneToMany(mappedBy="Banco"
-			,fetch=FetchType.LAZY,
-			cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="banco",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	//@JoinColumn(name = "Banco_id")
 	private List<Cuenta> cuentas;
-
+	
 	private void Banco() {
 		cuentas = new ArrayList<>();
 

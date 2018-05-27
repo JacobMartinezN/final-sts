@@ -46,16 +46,19 @@ public class Proveedor implements Serializable {
 	@OneToOne(fetch = FetchType.LAZY)
 	private PersonaContacto personaContacto;
 
-	@OneToMany(mappedBy="Proveedor",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="proveedor",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	//@JoinColumn(name = "Proveedor_id")
 	private List<Cuenta> cuentas;
 	
-	@OneToMany(mappedBy="Proveedor",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="proveedor",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	//@JoinColumn(name = "Proveedor_id")
 	private List<Factura> facturas;
+	
 	
 	private void Proveedor() {
 		cuentas = new ArrayList<>();
 		facturas = new ArrayList<>();
-	}	
+	}
 
 	public Long getIdProveedor() {
 		return idProveedor;
@@ -127,7 +130,8 @@ public class Proveedor implements Serializable {
 
 	public void setFacturas(List<Factura> facturas) {
 		this.facturas = facturas;
-	}
+	}	
+
 	
 	
 	
