@@ -6,26 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bpz.app.models.dao.IProveedorDao;
-import com.bpz.app.models.entity.Proveedor;
+import com.bpz.app.models.dao.ICargoDao;
+import com.bpz.app.models.entity.Cargo;
 
 @Service
-public class ProveedorService implements IProveedorService {
+public class CargoService implements ICargoService{
 
 	@Autowired
-	private IProveedorDao proveedorDao;
+	private ICargoDao cargoDao;
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<Proveedor> findAll() {
+	public List<Cargo> findAll() {
 		
-		return proveedorDao.findAll();
+		return cargoDao.findAll();
 	}
 
 	@Override
 	@Transactional
-	public void save(Proveedor proovedor) {
-		proveedorDao.save(proovedor);
+	public void save(Cargo cargo) {
+		cargoDao.save(cargo);
 		
 	}
 

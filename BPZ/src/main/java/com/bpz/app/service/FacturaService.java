@@ -6,26 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bpz.app.models.dao.IProveedorDao;
-import com.bpz.app.models.entity.Proveedor;
+import com.bpz.app.models.dao.IFacturaDao;
+import com.bpz.app.models.entity.Factura;
 
 @Service
-public class ProveedorService implements IProveedorService {
+public class FacturaService implements IFacturaService{
 
 	@Autowired
-	private IProveedorDao proveedorDao;
+	private IFacturaDao facturaDao;
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<Proveedor> findAll() {
+	public List<Factura> findAll() {
 		
-		return proveedorDao.findAll();
+		return facturaDao.findAll();
 	}
 
 	@Override
 	@Transactional
-	public void save(Proveedor proovedor) {
-		proveedorDao.save(proovedor);
+	public void save(Factura factura) {
+		facturaDao.save(factura);
 		
 	}
 

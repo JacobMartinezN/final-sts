@@ -2,31 +2,33 @@ package com.bpz.app.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bpz.app.models.dao.IProveedorDao;
-import com.bpz.app.models.entity.Proveedor;
+import com.bpz.app.models.dao.IBancoDao;
+import com.bpz.app.models.entity.Banco;
 
 @Service
-public class ProveedorService implements IProveedorService {
+public class BancoService implements IBancoService{
 
 	@Autowired
-	private IProveedorDao proveedorDao;
+	private IBancoDao bancoDao;
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<Proveedor> findAll() {
+	public List<Banco> findAll() {
 		
-		return proveedorDao.findAll();
+		return bancoDao.findAll();
 	}
 
 	@Override
 	@Transactional
-	public void save(Proveedor proovedor) {
-		proveedorDao.save(proovedor);
-		
+	public void save(Banco banco) {
+		bancoDao.save(banco);
 	}
 
+	
+	
 }
