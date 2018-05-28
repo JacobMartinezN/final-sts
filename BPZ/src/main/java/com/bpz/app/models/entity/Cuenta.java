@@ -40,11 +40,9 @@ private static final long serialVersionUID = 1L;
 	private  int tipoCuentaDeposito;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="cuenta_id", insertable=false, updatable=false)
 	private Proveedor proveedor;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="cuenta_id", insertable=false, updatable=false)
 	private Banco banco;
 
 	public Long getIdCuenta() {

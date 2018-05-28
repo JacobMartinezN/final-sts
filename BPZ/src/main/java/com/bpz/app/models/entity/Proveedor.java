@@ -32,9 +32,6 @@ public class Proveedor implements Serializable {
 	private String razonSocial;
 	
 	@NotNull
-	private String nombre;
-	
-	@NotNull
 	private int ruc;
 	
 	@NotNull
@@ -74,14 +71,6 @@ public class Proveedor implements Serializable {
 
 	public void setRazonSocial(String razonSocial) {
 		this.razonSocial = razonSocial;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public int getRuc() {
