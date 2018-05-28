@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.bpz.app.models.entity.Contenedor;
+import com.bpz.app.models.entity.PersonaContacto;
 import com.bpz.app.models.entity.Proveedor;
 import com.bpz.app.service.IPersonaContactoService;
 import com.bpz.app.service.IProveedorService;
@@ -36,17 +38,33 @@ public class ProveedorController {
 		return "listar";	
 	}
 	
+	@RequestMapping(value = "/form")
+	public String crear(Model model) {
+
+		Contenedor contenedor = new Contenedor();
+		model.addAttribute("contenedor", contenedor);
+		model.addAttribute("titulo", "Crear");
+		return "form";
+	}
 	@RequestMapping(value="/form",method=RequestMethod.POST)
-	public String guardar(@Valid Proveedor proveedor, BindingResult result,Model model, RedirectAttributes flash,
+	public String guardar(@Valid Contenedor contenedor, BindingResult result,Model model, RedirectAttributes flash,
 			SessionStatus status) {
 		if(result.hasErrors()) {
 			model.addAttribute("titulo", "Formulario de Proveedor");
 			return "form";
 		}
-		String mensajeFlash = (proveedor.getIdProveedor() !=null)?"Proveedor editado con exito!":"Cliente creado con exito!";
-		pService.save(proveedor);
+		
+		pCService.save(contenedor.getPersonacontacto());
+		Proveedor proveedorCompleto = new Proveedor();
+		proveedorCompleto = contenedor.getProveedor();
+		PersonaContacto personacontacto = new PersonaContacto();
+		personacontacto = pCService.findByDni(contenedor.getPersonacontacto().getDni());
+		proveedorCompleto.setPersonaContacto(personacontacto);
+				
+		pService.save(proveedorCompleto);
+		
 		status.setComplete();
-		flash.addFlashAttribute("success", mensajeFlash);
+		
 		return "redirect:listar";
 	}
 	
