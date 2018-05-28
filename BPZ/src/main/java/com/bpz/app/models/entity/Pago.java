@@ -9,7 +9,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "Pago")
+@Table(name = "pago")
 public class Pago implements Serializable  {
 
 	private static final long serialVersionUID = 1L;

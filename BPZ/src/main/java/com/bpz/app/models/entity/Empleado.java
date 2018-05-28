@@ -9,7 +9,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "Empleado")
+@Table(name = "empleado")
 public class Empleado implements Serializable {
 
 	

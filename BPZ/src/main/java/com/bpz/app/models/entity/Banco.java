@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 
 
 @Entity
-@Table(name = "Banco")
+@Table(name = "banco")
 public class Banco implements Serializable {
 	
 private static final long serialVersionUID = 1L;

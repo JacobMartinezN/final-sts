@@ -28,6 +28,11 @@ public class Proveedor implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProveedor;
 	
+	
+	@NotNull
+	private String nombre;
+	
+	
 	@NotNull
 	private String razonSocial;
 	
@@ -51,11 +56,12 @@ public class Proveedor implements Serializable {
 	//@JoinColumn(name = "Proveedor_id")
 	private List<Factura> facturas;
 	
-	
+	/*
 	private void Proveedor() {
 		cuentas = new ArrayList<>();
 		facturas = new ArrayList<>();
 	}
+	*/
 
 	public Long getIdProveedor() {
 		return idProveedor;

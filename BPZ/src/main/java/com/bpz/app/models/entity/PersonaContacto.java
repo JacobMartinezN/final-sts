@@ -8,7 +8,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "PersonaContacto")
+@Table(name = "persona_contacto")
 public class PersonaContacto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -33,7 +33,8 @@ public class PersonaContacto implements Serializable {
 	@Email
 	private String correo;
 	
-	
+	@OneToOne(mappedBy="personaContacto",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	Proveedor proveedor;
 	
 
 	public Long getId() {

@@ -29,5 +29,13 @@ public class PersonaContactoService implements IPersonaContactoService{
 		personacontactoDao.save(personaContacto);
 	}
 
+//	@Override
+//	@Transactional(readOnly = true)
+//	public PersonaContacto ObtenerIDPorNombre(String nombre) {
+//		// TODO Auto-generated method stub
+//		return personacontactoDao.ObtenerIDPorNombre(nombre);
+//		
+//	}
+
 	
 }
