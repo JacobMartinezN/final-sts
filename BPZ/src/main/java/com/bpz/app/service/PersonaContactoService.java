@@ -29,5 +29,13 @@ public class PersonaContactoService implements IPersonaContactoService{
 		personacontactoDao.save(personaContacto);
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public PersonaContacto findByDni(Long term) {
+		// TODO Auto-generated method stub
+		return personacontactoDao.findByDni(term);
+	}
+	
+	
 	
 }

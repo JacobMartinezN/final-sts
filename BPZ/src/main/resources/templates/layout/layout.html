@@ -31,6 +31,18 @@
 		<div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
 		<div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>
 	</header>
-	
+	<div class="container"></div>
+	<footer th:fragment="footer" class="container">
+		<hr />
+		<img th:src="@{/images/spring.png}" alt="Spring logo" />
+		<p>
+			Powered by  <a href="https://www.linkedin.com/in/henrymendozapuerta/" target=_blank>HAMP</a>.&copy; Company 2018.
+		</p>
+		
+		
+		<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/jquery-ui.min.js}"></script>
+	</footer>
 </body>
 </html>
